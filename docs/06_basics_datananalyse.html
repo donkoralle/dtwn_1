@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Die Basics zur Datenanalyse | How 2 do Things with Numbers (SS 2022)</title>
+  <meta name="description" content="6 Die Basics zur Datenanalyse | How 2 do Things with Numbers (SS 2022)" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Die Basics zur Datenanalyse | How 2 do Things with Numbers (SS 2022)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Die Basics zur Datenanalyse | How 2 do Things with Numbers (SS 2022)" />
+  
+  
+  
+
+<meta name="author" content="Kami Höferl | https://orcid.org/0000-0002-5397-180X" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="05_primaererhebung.html"/>
+<link rel="next" href="07_n_kategoriale_variablen.html"/>
+<script src="libs/header-attrs-2.12/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<html>
+
+  <head>
+  <script>
+    window.addEventListener("load", () => {
+        const enabled = document.querySelectorAll(".fullscreen-enabled");
+        for (let i = 0; i < enabled.length; i++) {
+            enabled[i].style.cursor = "pointer";
+            enabled[i].onclick = () => {
+                enabled[i].requestFullscreen();
+            };
+        }
+    });
+  </script>
+  </head>
+
+  <body>
+  <!-- body content here -->
+  </body>
+
+</html>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#howdy">Howdy<span></span></a></li>
+<li class="chapter" data-level="1" data-path="01_syllabus.html"><a href="01_syllabus.html"><i class="fa fa-check"></i><b>1</b> Ouvertüre (aka “Syllabus”)<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="01_syllabus.html"><a href="01_syllabus.html#lernziele"><i class="fa fa-check"></i><b>1.1</b> Lernziele<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="01_syllabus.html"><a href="01_syllabus.html#zeitplanung"><i class="fa fa-check"></i><b>1.2</b> Zeitplanung<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path="01_syllabus.html"><a href="01_syllabus.html#rulez-of-the-game"><i class="fa fa-check"></i><b>1.3</b> Rulez of the Game<span></span></a></li>
+<li class="chapter" data-level="1.4" data-path="01_syllabus.html"><a href="01_syllabus.html#übungsteile"><i class="fa fa-check"></i><b>1.4</b> Übungsteile<span></span></a></li>
+<li class="chapter" data-level="1.5" data-path="01_syllabus.html"><a href="01_syllabus.html#bewertungskriterien"><i class="fa fa-check"></i><b>1.5</b> Bewertungskriterien<span></span></a></li>
+<li class="chapter" data-level="1.6" data-path="01_syllabus.html"><a href="01_syllabus.html#formelles-zu-den-übungsarbeiten"><i class="fa fa-check"></i><b>1.6</b> Formelles zu den Übungsarbeiten<span></span></a></li>
+<li class="chapter" data-level="1.7" data-path="01_syllabus.html"><a href="01_syllabus.html#empfehlung-zur-eingesetzten-software"><i class="fa fa-check"></i><b>1.7</b> Empfehlung zur eingesetzten Software<span></span></a></li>
+<li class="chapter" data-level="1.8" data-path="01_syllabus.html"><a href="01_syllabus.html#ausgewählte-hilfestellungen-zum-thema-r-und-rstudio"><i class="fa fa-check"></i><b>1.8</b> Ausgewählte Hilfestellungen zum Thema R und RStudio<span></span></a></li>
+<li class="chapter" data-level="1.9" data-path="01_syllabus.html"><a href="01_syllabus.html#literatur"><i class="fa fa-check"></i><b>1.9</b> Literatur zur Lehrveranstaltung<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="02_forschungsprozess.html"><a href="02_forschungsprozess.html"><i class="fa fa-check"></i><b>2</b> Wege zum empirischen Forschen<span></span></a>
+<ul>
+<li><a href="02_forschungsprozess.html#zielsetzung-dieser-einheit">📢 Zielsetzung dieser Einheit<span></span></a></li>
+<li class="chapter" data-level="2.1" data-path="02_forschungsprozess.html"><a href="02_forschungsprozess.html#wozu-empirie"><i class="fa fa-check"></i><b>2.1</b> Wozu Empirie?<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="02_forschungsprozess.html"><a href="02_forschungsprozess.html#aber-wie"><i class="fa fa-check"></i><b>2.2</b> Aber wie?<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="02_forschungsprozess.html"><a href="02_forschungsprozess.html#hauptsache-daten"><i class="fa fa-check"></i><b>2.3</b> Hauptsache Daten?<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="03_messen.html"><a href="03_messen.html"><i class="fa fa-check"></i><b>3</b> Warmup: Messen und Skalen<span></span></a>
+<ul>
+<li><a href="03_messen.html#zielsetzung-dieser-einheit-1">📢 Zielsetzung dieser Einheit<span></span></a></li>
+<li class="chapter" data-level="3.1" data-path="03_messen.html"><a href="03_messen.html#was-passiert-beim-messen"><i class="fa fa-check"></i><b>3.1</b> Was passiert beim Messen?<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="03_messen.html"><a href="03_messen.html#skalenniveaus-reloaded"><i class="fa fa-check"></i><b>3.2</b> Skalenniveaus (reloaded)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="04_messen_primaer_sekundaerdaten.html"><a href="04_messen_primaer_sekundaerdaten.html"><i class="fa fa-check"></i><b>4</b> Sekundärdaten gewinnen<span></span></a>
+<ul>
+<li><a href="04_messen_primaer_sekundaerdaten.html#zielsetzung-dieser-einheit-2">📢 Zielsetzung dieser Einheit<span></span></a></li>
+<li class="chapter" data-level="4.1" data-path="04_messen_primaer_sekundaerdaten.html"><a href="04_messen_primaer_sekundaerdaten.html#sekundär-daten-gewinnen"><i class="fa fa-check"></i><b>4.1</b> (Sekundär-)Daten gewinnen<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="04_messen_primaer_sekundaerdaten.html"><a href="04_messen_primaer_sekundaerdaten.html#ein-technischer-aspekt-der-gewinnung-von-sekundärdaten"><i class="fa fa-check"></i><b>4.1.1</b> Ein technischer Aspekt der Gewinnung von Sekundärdaten<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="04_messen_primaer_sekundaerdaten.html"><a href="04_messen_primaer_sekundaerdaten.html#zur-qualität-von-sekundärdaten"><i class="fa fa-check"></i><b>4.2</b> Zur Qualität von Sekundärdaten<span></span></a></li>
+<li class="chapter" data-level="4.3" data-path="04_messen_primaer_sekundaerdaten.html"><a href="04_messen_primaer_sekundaerdaten.html#sekundärdaten-als-open-data-nutzen-können"><i class="fa fa-check"></i><b>4.3</b> Sekundärdaten als “Open Data” nutzen (können)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="05_primaererhebung.html"><a href="05_primaererhebung.html"><i class="fa fa-check"></i><b>5</b> Primärdaten gewinnen<span></span></a>
+<ul>
+<li><a href="05_primaererhebung.html#zielsetzung-dieser-einheit-3">📢 Zielsetzung dieser Einheit<span></span></a></li>
+<li class="chapter" data-level="5.1" data-path="05_primaererhebung.html"><a href="05_primaererhebung.html#nicht-rekative-verfahren"><i class="fa fa-check"></i><b>5.1</b> Nicht-rekative Verfahren<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="05_primaererhebung.html"><a href="05_primaererhebung.html#beobachtungen"><i class="fa fa-check"></i><b>5.2</b> Beobachtungen<span></span></a></li>
+<li class="chapter" data-level="5.3" data-path="05_primaererhebung.html"><a href="05_primaererhebung.html#befragungen"><i class="fa fa-check"></i><b>5.3</b> Befragungen<span></span></a></li>
+<li class="chapter" data-level="5.4" data-path="05_primaererhebung.html"><a href="05_primaererhebung.html#special-die-stichprobenziehung"><i class="fa fa-check"></i><b>5.4</b> Special: Die Stichprobenziehung<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="06_basics_datananalyse.html"><a href="06_basics_datananalyse.html"><i class="fa fa-check"></i><b>6</b> Die Basics zur Datenanalyse<span></span></a>
+<ul>
+<li><a href="06_basics_datananalyse.html#zielsetzung-dieser-einheit-4">📢 Zielsetzung dieser Einheit<span></span></a></li>
+<li class="chapter" data-level="6.1" data-path="06_basics_datananalyse.html"><a href="06_basics_datananalyse.html#daten-analysieren---aber-wie"><i class="fa fa-check"></i><b>6.1</b> Daten analysieren - aber wie?<span></span></a></li>
+<li class="chapter" data-level="6.2" data-path="06_basics_datananalyse.html"><a href="06_basics_datananalyse.html#die-hilfsmittel-r-rstudio"><i class="fa fa-check"></i><b>6.2</b> Die Hilfsmittel R &amp; RStudio<span></span></a></li>
+<li class="chapter" data-level="6.3" data-path="06_basics_datananalyse.html"><a href="06_basics_datananalyse.html#grundlegende-datenstrukturen-in-r"><i class="fa fa-check"></i><b>6.3</b> Grundlegende Datenstrukturen in R<span></span></a></li>
+<li class="chapter" data-level="6.4" data-path="06_basics_datananalyse.html"><a href="06_basics_datananalyse.html#daten-im--und-exportieren"><i class="fa fa-check"></i><b>6.4</b> Daten im- und exportieren<span></span></a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="06_basics_datananalyse.html"><a href="06_basics_datananalyse.html#der-datenimport"><i class="fa fa-check"></i><b>6.4.1</b> Der Datenimport<span></span></a></li>
+<li class="chapter" data-level="6.4.2" data-path="06_basics_datananalyse.html"><a href="06_basics_datananalyse.html#der-datenexport"><i class="fa fa-check"></i><b>6.4.2</b> Der Datenexport<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="07_n_kategoriale_variablen.html"><a href="07_n_kategoriale_variablen.html"><i class="fa fa-check"></i><b>7</b> Die Häufigkeitsanalyse kategorialer Daten<span></span></a>
+<ul>
+<li><a href="07_n_kategoriale_variablen.html#zielsetzung-dieser-einheit-5">📢 Zielsetzung dieser Einheit<span></span></a></li>
+<li class="chapter" data-level="7.1" data-path="07_n_kategoriale_variablen.html"><a href="07_n_kategoriale_variablen.html#katdatasetup"><i class="fa fa-check"></i><b>7.1</b> Kategoriale Daten auswerten<span></span></a></li>
+<li class="chapter" data-level="7.2" data-path="07_n_kategoriale_variablen.html"><a href="07_n_kategoriale_variablen.html#vorbereitendes"><i class="fa fa-check"></i><b>7.2</b> Vorbereitendes<span></span></a></li>
+<li class="chapter" data-level="7.3" data-path="07_n_kategoriale_variablen.html"><a href="07_n_kategoriale_variablen.html#katdatamanipul"><i class="fa fa-check"></i><b>7.3</b> Der Datenimport, die Datenaufbereitung und -validierung<span></span></a></li>
+<li class="chapter" data-level="7.4" data-path="07_n_kategoriale_variablen.html"><a href="07_n_kategoriale_variablen.html#die-häufikgeitsanalyse-einer-variablen"><i class="fa fa-check"></i><b>7.4</b> Die Häufikgeitsanalyse einer Variablen<span></span></a></li>
+<li class="chapter" data-level="7.5" data-path="07_n_kategoriale_variablen.html"><a href="07_n_kategoriale_variablen.html#katdatabivarn"><i class="fa fa-check"></i><b>7.5</b> Die Häufigkeitsanalyse zweier kategorialer Variablen<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="08_zusammenhaenge_kategoriale_variablen.html"><a href="08_zusammenhaenge_kategoriale_variablen.html"><i class="fa fa-check"></i><b>8</b> Zusammenhänge zwischen kategorialen Variablen<span></span></a>
+<ul>
+<li><a href="08_zusammenhaenge_kategoriale_variablen.html#zielsetzung-dieser-einheit-6">📢 Zielsetzung dieser Einheit<span></span></a></li>
+<li class="chapter" data-level="8.1" data-path="08_zusammenhaenge_kategoriale_variablen.html"><a href="08_zusammenhaenge_kategoriale_variablen.html#die-ausgangslage"><i class="fa fa-check"></i><b>8.1</b> Die Ausgangslage<span></span></a></li>
+<li class="chapter" data-level="8.2" data-path="08_zusammenhaenge_kategoriale_variablen.html"><a href="08_zusammenhaenge_kategoriale_variablen.html#zusammenhänge-zwischen-zwei-kategorialen-variablen-messen---die-theorie"><i class="fa fa-check"></i><b>8.2</b> Zusammenhänge zwischen zwei kategorialen Variablen messen - die Theorie<span></span></a></li>
+<li class="chapter" data-level="8.3" data-path="08_zusammenhaenge_kategoriale_variablen.html"><a href="08_zusammenhaenge_kategoriale_variablen.html#überprüfung-des-zusammenhangs-zwischen-politischer-orientierung-und-angemessenheit-des-pandemiemanagements"><i class="fa fa-check"></i><b>8.3</b> Überprüfung des Zusammenhangs zwischen politischer Orientierung und Angemessenheit des Pandemiemanagements<span></span></a></li>
+<li class="chapter" data-level="8.4" data-path="08_zusammenhaenge_kategoriale_variablen.html"><a href="08_zusammenhaenge_kategoriale_variablen.html#charakterisierung-des-zusammenhang-mittels-der-pearson-residuen"><i class="fa fa-check"></i><b>8.4</b> Charakterisierung des Zusammenhang mittels der Pearson Residuen<span></span></a></li>
+<li class="chapter" data-level="8.5" data-path="08_zusammenhaenge_kategoriale_variablen.html"><a href="08_zusammenhaenge_kategoriale_variablen.html#beurteilung-der-stärke-des-zusammenhangs-mit-cramers-v"><i class="fa fa-check"></i><b>8.5</b> Beurteilung der Stärke des Zusammenhangs mit Cramers V<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="09_deskriptive_statistik_metrisch.html"><a href="09_deskriptive_statistik_metrisch.html"><i class="fa fa-check"></i><b>9</b> Deskriptive Statistik für metrische Daten<span></span></a>
+<ul>
+<li><a href="09_deskriptive_statistik_metrisch.html#zielsetzung-dieser-einheit-7">📢 Zielsetzung dieser Einheit<span></span></a></li>
+<li class="chapter" data-level="9.1" data-path="09_deskriptive_statistik_metrisch.html"><a href="09_deskriptive_statistik_metrisch.html#ausgangDeskriptivMetrisch"><i class="fa fa-check"></i><b>9.1</b> Die Ausgangslage<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="09_deskriptive_statistik_metrisch.html"><a href="09_deskriptive_statistik_metrisch.html#der-datenimport-die-datenaufbereitung-und--validierung"><i class="fa fa-check"></i><b>9.2</b> Der Datenimport, die Datenaufbereitung und -validierung<span></span></a></li>
+<li class="chapter" data-level="9.3" data-path="09_deskriptive_statistik_metrisch.html"><a href="09_deskriptive_statistik_metrisch.html#ein-blick-auf-klassische-lage--und-streuungsparameter"><i class="fa fa-check"></i><b>9.3</b> Ein Blick auf klassische Lage- und Streuungsparameter<span></span></a></li>
+<li class="chapter" data-level="9.4" data-path="09_deskriptive_statistik_metrisch.html"><a href="09_deskriptive_statistik_metrisch.html#exkurs-für-motivierte-geographinnen-räumlich-explizite-deskription"><i class="fa fa-check"></i><b>9.4</b> Exkurs für motivierte GeographInnen: Räumlich explizite Deskription<span></span></a></li>
+<li class="chapter" data-level="9.5" data-path="09_deskriptive_statistik_metrisch.html"><a href="09_deskriptive_statistik_metrisch.html#lage--und-streuungsparameter-graphisch-darstellen"><i class="fa fa-check"></i><b>9.5</b> Lage- und Streuungsparameter graphisch darstellen<span></span></a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="09_deskriptive_statistik_metrisch.html"><a href="09_deskriptive_statistik_metrisch.html#histogramme"><i class="fa fa-check"></i><b>9.5.1</b> <strong>Histogramme</strong><span></span></a></li>
+<li class="chapter" data-level="9.5.2" data-path="09_deskriptive_statistik_metrisch.html"><a href="09_deskriptive_statistik_metrisch.html#boxplots"><i class="fa fa-check"></i><b>9.5.2</b> <strong>Boxplots</strong><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="09_deskriptive_statistik_metrisch.html"><a href="09_deskriptive_statistik_metrisch.html#ein-erster-blick-auf-mögliche-zusammenhänge"><i class="fa fa-check"></i><b>9.6</b> Ein erster Blick auf mögliche Zusammenhänge<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10_metrische_zusammenhaenge.html"><a href="10_metrische_zusammenhaenge.html"><i class="fa fa-check"></i><b>10</b> Zusammenhänge zwischen zwei metrischen Variablen<span></span></a>
+<ul>
+<li><a href="10_metrische_zusammenhaenge.html#zielsetzung-dieser-einheit-8">📢 Zielsetzung dieser Einheit<span></span></a></li>
+<li class="chapter" data-level="10.1" data-path="10_metrische_zusammenhaenge.html"><a href="10_metrische_zusammenhaenge.html#die-ausgangslage-1"><i class="fa fa-check"></i><b>10.1</b> Die Ausgangslage<span></span></a></li>
+<li class="chapter" data-level="10.2" data-path="10_metrische_zusammenhaenge.html"><a href="10_metrische_zusammenhaenge.html#datenimport-und--aufbereitung"><i class="fa fa-check"></i><b>10.2</b> Datenimport und -aufbereitung<span></span></a></li>
+<li class="chapter" data-level="10.3" data-path="10_metrische_zusammenhaenge.html"><a href="10_metrische_zusammenhaenge.html#den-zusammenhang-graphisch-erkunden"><i class="fa fa-check"></i><b>10.3</b> Den Zusammenhang graphisch erkunden<span></span></a></li>
+<li class="chapter" data-level="10.4" data-path="10_metrische_zusammenhaenge.html"><a href="10_metrische_zusammenhaenge.html#den-zusammenhang-numerisch-abbilden"><i class="fa fa-check"></i><b>10.4</b> Den Zusammenhang numerisch abbilden<span></span></a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="10_metrische_zusammenhaenge.html"><a href="10_metrische_zusammenhaenge.html#überprüfung-der-normalverteilung"><i class="fa fa-check"></i><b>10.4.1</b> Überprüfung der Normalverteilung<span></span></a></li>
+<li class="chapter" data-level="10.4.2" data-path="10_metrische_zusammenhaenge.html"><a href="10_metrische_zusammenhaenge.html#messung-des-zusammenhangs-zwischen-covid-erkrankungen-und-todesfällen-mittels-rangkorrelation"><i class="fa fa-check"></i><b>10.4.2</b> Messung des Zusammenhangs zwischen COVID Erkrankungen und Todesfällen mittels Rangkorrelation<span></span></a></li>
+<li class="chapter" data-level="10.4.3" data-path="10_metrische_zusammenhaenge.html"><a href="10_metrische_zusammenhaenge.html#messung-des-zusammenhangs-zwischen-covid-erkrankungen-und-todesfällen-mittels-des-korrelationskoeffizienten-nach-pearson"><i class="fa fa-check"></i><b>10.4.3</b> Messung des Zusammenhangs zwischen COVID Erkrankungen und Todesfällen mittels des Korrelationskoeffizienten nach Pearson<span></span></a></li>
+<li class="chapter" data-level="10.4.4" data-path="10_metrische_zusammenhaenge.html"><a href="10_metrische_zusammenhaenge.html#ermittlung-der-bundeslandspezifischen-rangkorrelationskoeffizienten"><i class="fa fa-check"></i><b>10.4.4</b> Ermittlung der bundeslandspezifischen Rangkorrelationskoeffizienten<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="10_metrische_zusammenhaenge.html"><a href="10_metrische_zusammenhaenge.html#lineare-regression-als-alternativer-zugang"><i class="fa fa-check"></i><b>10.5</b> Lineare Regression als alternativer Zugang<span></span></a></li>
+<li class="chapter" data-level="10.6" data-path="10_metrische_zusammenhaenge.html"><a href="10_metrische_zusammenhaenge.html#konklusio"><i class="fa fa-check"></i><b>10.6</b> Konklusio<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11_gruppenunterschiede_v2.html"><a href="11_gruppenunterschiede_v2.html"><i class="fa fa-check"></i><b>11</b> Gruppenunterschiede erforschen<span></span></a>
+<ul>
+<li><a href="11_gruppenunterschiede_v2.html#zielsetzung-dieser-einheit-9">📢 Zielsetzung dieser Einheit<span></span></a></li>
+<li class="chapter" data-level="11.1" data-path="11_gruppenunterschiede_v2.html"><a href="11_gruppenunterschiede_v2.html#die-ausgangslage-2"><i class="fa fa-check"></i><b>11.1</b> Die Ausgangslage<span></span></a></li>
+<li class="chapter" data-level="11.2" data-path="11_gruppenunterschiede_v2.html"><a href="11_gruppenunterschiede_v2.html#datenimport-und--aufbereitung-1"><i class="fa fa-check"></i><b>11.2</b> Datenimport und -aufbereitung<span></span></a></li>
+<li class="chapter" data-level="11.3" data-path="11_gruppenunterschiede_v2.html"><a href="11_gruppenunterschiede_v2.html#vorbereitende-überlegungen"><i class="fa fa-check"></i><b>11.3</b> Vorbereitende Überlegungen<span></span></a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="11_gruppenunterschiede_v2.html"><a href="11_gruppenunterschiede_v2.html#ermitteln-des-passenden-verfahrens"><i class="fa fa-check"></i><b>11.3.1</b> Ermitteln des passenden Verfahrens<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="11_gruppenunterschiede_v2.html"><a href="11_gruppenunterschiede_v2.html#gruppenunterschiede-bei-normalverteilten-variablen-mittels-varianzanalyse-untersuchen"><i class="fa fa-check"></i><b>11.4</b> Gruppenunterschiede bei normalverteilten Variablen mittels Varianzanalyse untersuchen<span></span></a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="11_gruppenunterschiede_v2.html"><a href="11_gruppenunterschiede_v2.html#welch"><i class="fa fa-check"></i><b>11.4.1</b> Gruppenunterschiede bei Variablen mit Varianzheterogenität erkunden<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="11_gruppenunterschiede_v2.html"><a href="11_gruppenunterschiede_v2.html#gruppenunterschiede-bei-ordinalen-oder-nicht-normalverteilten-variablen"><i class="fa fa-check"></i><b>11.5</b> Gruppenunterschiede bei ordinalen oder nicht normalverteilten Variablen<span></span></a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="11_gruppenunterschiede_v2.html"><a href="11_gruppenunterschiede_v2.html#vorbereitendes-1"><i class="fa fa-check"></i><b>11.5.1</b> Vorbereitendes<span></span></a></li>
+<li class="chapter" data-level="11.5.2" data-path="11_gruppenunterschiede_v2.html"><a href="11_gruppenunterschiede_v2.html#eine-erster-blick-auf-die-politischen-gruppen-und-deren-sorge-vor-einer-ansteckung"><i class="fa fa-check"></i><b>11.5.2</b> Eine erster Blick auf die politischen Gruppen und deren Sorge vor einer Ansteckung<span></span></a></li>
+<li class="chapter" data-level="11.5.3" data-path="11_gruppenunterschiede_v2.html"><a href="11_gruppenunterschiede_v2.html#gruppenunterschieden-mit-dem-kruskal-wallis-test-nachgehen"><i class="fa fa-check"></i><b>11.5.3</b> Gruppenunterschieden mit dem Kruskal-Wallis-Test nachgehen<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="666_lit.html"><a href="666_lit.html"><i class="fa fa-check"></i><b>12</b> Quellen<span></span></a></li>
+<li class="chapter" data-level="13" data-path="80_athome1.html"><a href="80_athome1.html"><i class="fa fa-check"></i><b>13</b> @Home1: Einen Fragebogen in Limesurvey umsetzen<span></span></a>
+<ul>
+<li><a href="80_athome1.html#zielsetzung">📢 Zielsetzung<span></span></a></li>
+<li class="chapter" data-level="13.1" data-path="80_athome1.html"><a href="80_athome1.html#ausgangslage"><i class="fa fa-check"></i><b>13.1</b> Ausgangslage<span></span></a></li>
+<li class="chapter" data-level="13.2" data-path="80_athome1.html"><a href="80_athome1.html#aufgabenstellung"><i class="fa fa-check"></i><b>13.2</b> Aufgabenstellung<span></span></a></li>
+<li class="chapter" data-level="13.3" data-path="80_athome1.html"><a href="80_athome1.html#formelles"><i class="fa fa-check"></i><b>13.3</b> Formelles<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="81_athome2.html"><a href="81_athome2.html"><i class="fa fa-check"></i><b>14</b> @Home2: Eine einfache Quotenstichprobe<span></span></a>
+<ul>
+<li><a href="81_athome2.html#zielsetzung-1">📢 Zielsetzung<span></span></a></li>
+<li class="chapter" data-level="14.1" data-path="81_athome2.html"><a href="81_athome2.html#ausgangslage-1"><i class="fa fa-check"></i><b>14.1</b> Ausgangslage<span></span></a></li>
+<li class="chapter" data-level="14.2" data-path="81_athome2.html"><a href="81_athome2.html#aufgabenstellung-1"><i class="fa fa-check"></i><b>14.2</b> Aufgabenstellung<span></span></a></li>
+<li class="chapter" data-level="14.3" data-path="81_athome2.html"><a href="81_athome2.html#formelles-1"><i class="fa fa-check"></i><b>14.3</b> Formelles<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="82_athome3.html"><a href="82_athome3.html"><i class="fa fa-check"></i><b>15</b> @Home3: Zusammenhänge und Unterschiede<span></span></a>
+<ul>
+<li><a href="82_athome3.html#zielsetzung-2">📢 Zielsetzung<span></span></a></li>
+<li class="chapter" data-level="15.1" data-path="82_athome3.html"><a href="82_athome3.html#beispiel-a-covid-19-impfungen-in-österreich"><i class="fa fa-check"></i><b>15.1</b> Beispiel A: COVID-19 Impfungen in Österreich<span></span></a></li>
+<li class="chapter" data-level="15.2" data-path="82_athome3.html"><a href="82_athome3.html#beispiel-b-bundesdeutsche-wahrnehmungen-zur-covid-19-pandemie"><i class="fa fa-check"></i><b>15.2</b> Beispiel B: Bundesdeutsche Wahrnehmungen zur COVID-19 Pandemie<span></span></a></li>
+<li class="chapter" data-level="15.3" data-path="82_athome3.html"><a href="82_athome3.html#formalia"><i class="fa fa-check"></i><b>15.3</b> Formalia<span></span></a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="82_athome3.html"><a href="82_athome3.html#deadline-verpasst"><i class="fa fa-check"></i><b>15.3.1</b> Deadline verpasst?<span></span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">How 2 do Things with Numbers (SS 2022)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="die-basics-zur-datenanalyse" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Die Basics zur Datenanalyse<a href="06_basics_datananalyse.html#die-basics-zur-datenanalyse" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="zielsetzung-dieser-einheit-4" class="section level2 unnumbered hasAnchor">
+<h2>📢 Zielsetzung dieser Einheit<a href="#zielsetzung-dieser-einheit-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Am Beginn dieser Einheit werden zunächst die unterschiedlichen <strong>Phasen</strong> eines idealtypischen <strong>Analyseprozesses</strong> dargelegt. Danach schauen wir uns an, wie ein solcher Analyseprozess mit den <strong>Tools R und RStudio</strong> gelingen kann. dazu werden in einem ersten Schritt die Grundlagen des <strong>Datenhandlings</strong> mittels R behandelt.</p>
+<hr />
+</div>
+<div id="daten-analysieren---aber-wie" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Daten analysieren - aber wie?<a href="06_basics_datananalyse.html#daten-analysieren---aber-wie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Unabhängig von der gewählten Fragestellung bestehen Datenanalysen aus einer Abfolge unterschiedlicher <strong>Arbeitsschritte</strong>:</p>
+<div class="figure">
+<img src="images/workflow_v1_cr.jpg" class="videoframe fullscreen-enabled" alt="" />
+<p class="caption">Ein idealtyptischer Analyseworkflow</p>
+</div>
+<p>Dieser idealtypische Workflow muss dabei nicht zwingend linear durchlaufen werden. Die Farbgebung in obiger Darstellung deutet bereits an, dass wir in diesem Prozess drei große Abschnitte unterscheiden können:</p>
+<ol style="list-style-type: decimal">
+<li>Die initiale <strong>Datenbeschaffung</strong></li>
+<li>Die <strong>Aufbereitung und Analyse</strong> dieser Daten</li>
+<li>Die <strong>Dokumentation</strong> der erzeugten Daten und Ergebnisse</li>
+</ol>
+</div>
+<div id="die-hilfsmittel-r-rstudio" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Die Hilfsmittel R &amp; RStudio<a href="06_basics_datananalyse.html#die-hilfsmittel-r-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Um den zuvor beschriebenen Analyseprozess auch umzusetzen reichen theoretisch Stift und Papier. Praktisch kann man dazu aber auf ein breites Angebot an <a href="https://de.wikipedia.org/wiki/Liste_von_Statistik-Software">Software Lösungen</a> zurückgreifen. Für eine <a href="https://de.wikipedia.org/wiki/Offene_Wissenschaft">am Grundsatz der Offenheit orientierten Forschung</a> werden wir uns in weiterer Folge mit der <a href="https://de.wikipedia.org/wiki/R_(Programmiersprache)">Programmiersprache R</a> auseinandersetzen. Einige rahmende Ausführungen zu R finden sich hier:</p>
+<iframe src="https://kamihoeferl.at/lehre/vu_sozwiss_1/___slides/eh6-1_r_basics_v1.html#1" width="600px" height="450px" class="videoframe" allowfullscreen>
+Your browser doesnot support iframes <a href="<https://kamihoeferl.at/lehre/vu_sozwiss_1/___slides/eh6-1_r_basics_v1.html#1">click here to view the page directly.</a>
+</iframe>
+<div>
+<a href="https://kamihoeferl.at/lehre/vu_sozwiss_1/___slides/eh6-1_r_basics_v1.pdf">Die Slides als PDF</a>
+</div>
+<p><br></p>
+<p>👉 Interessierte möchte ich an dieser Stelle auf Walter Grubers <a href="https://wgruber.github.io/R-Intro/aufbau-des-kurses.html#allgemeines"><strong>“Reinführung in RStudio”</strong></a> aufmerksam machen, die einen kurzweiligen Überblick auf die Entstehung der Programmiersprache R (und noch viel mehr) bietet.</p>
+<p>Um den Umgang mit <strong>R komfortabler</strong> zu gestalten, kann auf sgn. integrierte Entwicklungsumgebungen (“integrated development environment - IDE”) zurückgegriffen werden. Klingt technisch, heißt praktisch lediglich dass IDEs wie <a href="https://de.wikipedia.org/wiki/RStudio"><strong>RStudio</strong></a> helfen, Analyseprozesse mit R übersichtlicher umzusetzen. Lukas Burk und Tobias Anton bieten in ihrer lesenswerten Einführung <a href="https://r-intro.tadaa-data.de/book/">“R für Psychos”</a> eine <a href="https://r-intro.tadaa-data.de/book/orientierung.html#rstudio"><strong>gelungene Einführung in RStudio</strong></a> an. Kurz und gut: Lesen Sie bitte diese Einführung in RStudio dort nach.</p>
+</div>
+<div id="grundlegende-datenstrukturen-in-r" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Grundlegende Datenstrukturen in R<a href="06_basics_datananalyse.html#grundlegende-datenstrukturen-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<hr />
+<p><strong>⏳ Work in Progress ⏳</strong>*</p>
+<p><strong>🔽<a href="06_basic_datatypes_v1.R">Till then: Download it here</a>🔽</strong></p>
+<hr />
+</div>
+<div id="daten-im--und-exportieren" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Daten im- und exportieren<a href="06_basics_datananalyse.html#daten-im--und-exportieren" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Der Im- und Export von Daten ist zentraler Bestandteil jeder Datenanalyse. R und RStudio bieten dazu die unterschiedlichsten Möglichkeiten, von denen wir uns einige näher ansehen wollen.</p>
+<p><strong>Ein Hinweis:</strong> Da R skriptbasiert ist, müssen die zu Locations der zu im- oder portierenden Datensätze als absolute oder meist als relative Pfadangaben gesetzt werden. Um dieses Referenzieren von Datensätzen einheitlicher zu gestalten, empfiehlt es sich, seinen Projekten folgende Minimalstruktur zu verpassen:</p>
+<pre><code>Projektfolder
+| skript_1.R
+| ...
+| skript_n.R    
+|
++-- data
+    | datensatz_1.csv
+    | ...
+    | datensatz_n.csv</code></pre>
+<p>Verweise auf Datensätze beginnen damit einheitlich mit “data”. Ein Verweis auf datensatz_1.csv würde damit wie folgt aussehen: “data/datensatz_1.csv”</p>
+<p>In den meisten Fällen ist man - wie in dem obigen Beispiel - mit relativen Pfadangaben gut bedient. Dadurch kann bestehender Code leicht zwischen unterschiedlichen Systemen umgezogen werden.</p>
+<div id="der-datenimport" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Der Datenimport<a href="06_basics_datananalyse.html#der-datenimport" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Nach dieser Einleitung wollen wir nun aber endlich Datensätze importieren. Was uns dazu noch fehlt? Daten!</p>
+<p><strong>🔽<a href="data/data.zip">Ein paar Übungsdatensätze zum Importieren finden sich hier.</a>🔽</strong></p>
+<p>Das ZIP-Archiv mit unseren Übungsdaten entpacken wir in den Ordner “data”.</p>
+<p>Das Dateiformat <strong>MS-Excel (XLSX)</strong> ist wohl eines der bekanntesten. Der Import solcher Tabellenblätter kann mit einer Vielzahl von Packages bewerkstelligt werden. Das <strong>Package readxl</strong> verzichtet dazu auf Java etc., was es zu einer leichten und schnellen Lösung macht.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="06_basics_datananalyse.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-2"><a href="06_basics_datananalyse.html#cb2-2" aria-hidden="true" tabindex="-1"></a>xlsx.laender <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/laender.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;aut-de-ch&quot;</span>)</span>
+<span id="cb2-3"><a href="06_basics_datananalyse.html#cb2-3" aria-hidden="true" tabindex="-1"></a>xlsx.laender</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 6
+##      ID land          area    ew eumitglied     creditrating
+##   &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;       
+## 1     1 Österreich   83800   8.9 Mitglied       AA          
+## 2     2 Deutschland 357500  83.2 Mitglied       AAA         
+## 3     3 Schweiz      41300   8.6 nicht Mitglied AAA</code></pre>
+<p>Im Gegensatz dazu können im <strong>Comma Sperated Values (CSV)</strong> Format abgelegte Daten sehr gut auch ohne zusätzliche Packages mit den Befehlen read.csv und read.csv2 importiert werden: Ersterer geht von Beistrichen als Feldtrennzeichen und Punkten als Dezimaltrennzeichen, letzterer von Strichpunkten als Feldtrennzeichen und Beistrichen als Dezimaltrennzeichen.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="06_basics_datananalyse.html#cb4-1" aria-hidden="true" tabindex="-1"></a>csv.laender <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;data/laender.csv&quot;</span>)</span>
+<span id="cb4-2"><a href="06_basics_datananalyse.html#cb4-2" aria-hidden="true" tabindex="-1"></a>csv.laender</span></code></pre></div>
+<pre><code>##   X        land   area   ew     eumitglied creditrating
+## 1 1  Österreich  83800  8.9       Mitglied           AA
+## 2 2 Deutschland 357500 83.2       Mitglied          AAA
+## 3 3     Schweiz  41300  8.6 nicht Mitglied          AAA</code></pre>
+<blockquote>
+<p>📚 <strong>Exkurs:</strong><br />
+Ein Klick auf ein Datenfile offenbart ein Feature namens “Import dataset …” das ein einfaches graphisches Interface zur Voransicht der zu importierenden Datensätze bietet.</p>
+</blockquote>
+<p>Der Import von CSV-Datensätzen kann auch direkt über das <strong>HTTP-Protokoll</strong> angestoßen werden. dazu ein kurzes Beispiel aus dem <a href="https://covid19-dashboard.ages.at">COVID19-Dashboard</a> der <a href="https://www.ages.at/startseite/">Österreichischen Agentur für Ernährungssicherheit (AGES)</a>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="06_basics_datananalyse.html#cb6-1" aria-hidden="true" tabindex="-1"></a>CovidFaelle <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;https://covid19-dashboard.ages.at/data/CovidFaelle_GKZ.csv&quot;</span>,</span>
+<span id="cb6-2"><a href="06_basics_datananalyse.html#cb6-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>,</span>
+<span id="cb6-3"><a href="06_basics_datananalyse.html#cb6-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>)</span>
+<span id="cb6-4"><a href="06_basics_datananalyse.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(CovidFaelle)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    94 obs. of  6 variables:
+##  $ Bezirk           : chr  &quot;Eisenstadt(Stadt)&quot; &quot;Rust(Stadt)&quot; &quot;Eisenstadt-Umgebung&quot; &quot;Güssing&quot; ...
+##  $ GKZ              : int  101 102 103 104 105 106 107 108 109 201 ...
+##  $ AnzEinwohner     : int  15374 2021 44488 25809 17216 40731 61358 37556 54682 103297 ...
+##  $ Anzahl           : int  7922 965 22784 13103 8285 20441 31625 18866 26800 46119 ...
+##  $ AnzahlTot        : int  23 2 72 100 42 82 86 63 145 278 ...
+##  $ AnzahlFaelle7Tage: int  144 22 355 138 100 348 476 313 365 576 ...</code></pre>
+<p>Es können aber auch <strong>“ausgefallenere” Formate</strong> importiert werden: Eigentlich nicht so ausgefallen, dafür weniger bekannt ist das R-eigene RDS-Format. Dieses binäre Format unterstützt die Übergabe von Faktoren (= praktisch):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="06_basics_datananalyse.html#cb8-1" aria-hidden="true" tabindex="-1"></a>rds.laender <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/laender.rds&quot;</span>)</span>
+<span id="cb8-2"><a href="06_basics_datananalyse.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(rds.laender)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  5 variables:
+##  $ land        : chr  &quot;Österreich&quot; &quot;Deutschland&quot; &quot;Schweiz&quot;
+##  $ area        : num  83800 357500 41300
+##  $ ew          : num  8.9 83.2 8.6
+##  $ eumitglied  : Factor w/ 2 levels &quot;Mitglied&quot;,&quot;nicht Mitglied&quot;: 1 1 2
+##  $ creditrating: Ord.factor w/ 10 levels &quot;AAA&quot;&lt;&quot;AA&quot;&lt;&quot;A&quot;&lt;..: 2 1 1</code></pre>
+<p>Über <a href="https://cran.r-project.org/web/packages/haven/index.html">Packages wie haven</a> können auch die hauseigenen Formate anderer Statistikpakete - wie beispielsweise SPSS - eingelesen werden. Je nach Package werden dabei verschiedene Metadaten zu den einzelnen Variablen mit importiert:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="06_basics_datananalyse.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb10-2"><a href="06_basics_datananalyse.html#cb10-2" aria-hidden="true" tabindex="-1"></a>spsslaender <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">&quot;data/laender.sav&quot;</span>)</span>
+<span id="cb10-3"><a href="06_basics_datananalyse.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(spsslaender)</span></code></pre></div>
+<pre><code>## tibble [3 x 6] (S3: tbl_df/tbl/data.frame)
+##  $ id          : num [1:3] 1 2 3
+##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F1.0&quot;
+##  $ land        : chr [1:3] &quot;Österreich&quot; &quot;Deutschland&quot; &quot;Schweiz&quot;
+##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;A11&quot;
+##   ..- attr(*, &quot;display_width&quot;)= int 11
+##  $ area        : num [1:3] 83800 357500 41300
+##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F6.0&quot;
+##  $ ew          : num [1:3] 8.9 83.2 8.6
+##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F4.1&quot;
+##  $ eumitglied  : dbl+lbl [1:3] 1, 1, 0
+##    ..@ format.spss  : chr &quot;F14.0&quot;
+##    ..@ display_width: int 14
+##    ..@ labels       : Named num [1:2] 0 1
+##    .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;kein Mitlgied&quot; &quot;Mitglied&quot;
+##  $ creditrating: chr [1:3] &quot;AA&quot; &quot;AAA&quot; &quot;AAA&quot;
+##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;A3&quot;</code></pre>
+<p><strong>Ein komplexerer Zugang zum Thema Datenimport:</strong><br />
+Es können über <a href="https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/">Packages wie rvest</a> auch einzelne HTML-Elemente aus Websites ausgelesen und importiert werden. Mit Code-Support der <a href="https://r-intro.tadaa-data.de/book/">R Psychos Lukas Burk und Tobias Anton</a> kann man beispielsweise die <a href="https://en.wikipedia.org/wiki/World_Happiness_Report">Rankings des World Happiness Reports 2020 aus Wikipedia</a> absaugen:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="06_basics_datananalyse.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)    <span class="co"># Schnittstelle zum http(s) Protokoll</span></span>
+<span id="cb12-2"><a href="06_basics_datananalyse.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)    <span class="co"># Grammar of Data Manipulation (vgl. &quot;Tidyverse&quot;) -&gt; &quot;pipes&quot;</span></span></code></pre></div>
+<pre><code>## 
+## Attache Paket: &#39;dplyr&#39;</code></pre>
+<pre><code>## Die folgenden Objekte sind maskiert von &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## Die folgenden Objekte sind maskiert von &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="06_basics_datananalyse.html#cb16-1" aria-hidden="true" tabindex="-1"></a>happiness2020 <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://en.wikipedia.org/wiki/World_Happiness_Report&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="06_basics_datananalyse.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;table&quot;</span>) <span class="sc">%&gt;%</span>   <span class="co"># liefert Lister aller table-Elemente</span></span>
+<span id="cb16-3"><a href="06_basics_datananalyse.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  .[<span class="dv">11</span>] <span class="sc">%&gt;%</span>                 <span class="co"># 11tes table-Element (manuell ermittelt)</span></span>
+<span id="cb16-4"><a href="06_basics_datananalyse.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>(<span class="at">header =</span> <span class="cn">NA</span>, <span class="at">trim =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a href="06_basics_datananalyse.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  .[[<span class="dv">1</span>]]                    <span class="co"># hä? html_table liefert eine Liste von Dataframes, wir wollen davon den ersten</span></span>
+<span id="cb16-6"><a href="06_basics_datananalyse.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(happiness2020)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 9
+##   `Overall rank` `Country or region` Score `GDP per capita`
+##            &lt;int&gt; &lt;chr&gt;               &lt;dbl&gt;            &lt;dbl&gt;
+## 1              1 Finland              7.81             1.28
+## 2              2 Denmark              7.65             1.33
+## 3              3 Switzerland          7.56             1.39
+## 4              4 Iceland              7.50             1.33
+## 5              5 Norway               7.49             1.42
+## 6              6 Netherlands          7.45             1.34
+## # ... with 5 more variables: `Social support` &lt;dbl&gt;,
+## #   `Healthy life expectancy` &lt;dbl&gt;,
+## #   `Freedom to make life choices` &lt;dbl&gt;, Generosity &lt;dbl&gt;,
+## #   `Perceptions of corruption` &lt;dbl&gt;</code></pre>
+</div>
+<div id="der-datenexport" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Der Datenexport<a href="06_basics_datananalyse.html#der-datenexport" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Und wie können Daten nun wieder exportiert werden?</p>
+<p>Bevor wir unsere Übungsdaten wieder exportieren, wollen wir noch flott zwei kleine Manipulationen vornehmen: Wir ermitteln für unsere kleine Ländersammlung die Bevölkerungsdichte und ordnen die Spalten inhaltlich konsistenter an.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="06_basics_datananalyse.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bevölkerungsdichte auf 2 Nachkommastellen genau ermitteln</span></span>
+<span id="cb18-2"><a href="06_basics_datananalyse.html#cb18-2" aria-hidden="true" tabindex="-1"></a>rds.laender<span class="sc">$</span>bevdichte <span class="ot">&lt;-</span> <span class="fu">round</span>((rds.laender<span class="sc">$</span>ew<span class="sc">*</span><span class="dv">1000</span>)<span class="sc">/</span>rds.laender<span class="sc">$</span>area, <span class="dv">2</span>)</span>
+<span id="cb18-3"><a href="06_basics_datananalyse.html#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="06_basics_datananalyse.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Spalten noch etwas inhaltlich konsistenter anordnen</span></span>
+<span id="cb18-5"><a href="06_basics_datananalyse.html#cb18-5" aria-hidden="true" tabindex="-1"></a>rds.laender.ex <span class="ot">&lt;-</span> rds.laender[, <span class="fu">c</span>(<span class="st">&quot;land&quot;</span>, <span class="st">&quot;area&quot;</span>, <span class="st">&quot;ew&quot;</span>, <span class="st">&quot;bevdichte&quot;</span>, <span class="st">&quot;eumitglied&quot;</span>, <span class="st">&quot;creditrating&quot;</span>)]</span>
+<span id="cb18-6"><a href="06_basics_datananalyse.html#cb18-6" aria-hidden="true" tabindex="-1"></a>rds.laender.ex</span></code></pre></div>
+<pre><code>##          land   area   ew bevdichte     eumitglied creditrating
+## 1  Österreich  83800  8.9      0.11       Mitglied           AA
+## 2 Deutschland 357500 83.2      0.23       Mitglied          AAA
+## 3     Schweiz  41300  8.6      0.21 nicht Mitglied          AAA</code></pre>
+<p>Diesen kleinen Dataframe wollen wir nun in unterschiedliche Formate exportieren - beispielsweise in ein <strong>Excel-Sheet</strong> mittels des <a href="https://cran.r-project.org/web/packages/writexl/writexl.pdf">Packages writexl</a>:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="06_basics_datananalyse.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb20-2"><a href="06_basics_datananalyse.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(rds.laender.ex, <span class="st">&quot;data/myLaender.xlsx&quot;</span>)</span></code></pre></div>
+<p>… oder als <strong>CSV-Datei</strong> (sicherheitshalber mit Angabe des Encodings):</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="06_basics_datananalyse.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(rds.laender.ex, <span class="st">&quot;data/myLaender.csv&quot;</span>, <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
+<p>… oder als <strong>RDS-Datei</strong>:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="06_basics_datananalyse.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(rds.laender.ex, <span class="st">&quot;data/myLaender.rds&quot;</span>)</span></code></pre></div>
+<p>… oder als SAV-Datei für SPSS mittels des <a href="https://cran.r-project.org/web/packages/haven/index.html">haven-Packages</a>:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="06_basics_datananalyse.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sav</span>(rds.laender.ex, <span class="st">&quot;data/myLaender.sav&quot;</span>)</span></code></pre></div>
+<p>… oder als reiner Text für die Zwischenablage:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="06_basics_datananalyse.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># V1: in die Console zum manuellen Kopieren</span></span>
+<span id="cb24-2"><a href="06_basics_datananalyse.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(rds.laender.ex)</span></code></pre></div>
+<pre><code>## &quot;land&quot; &quot;area&quot; &quot;ew&quot; &quot;bevdichte&quot; &quot;eumitglied&quot; &quot;creditrating&quot;
+## &quot;1&quot; &quot;Österreich&quot; 83800 8.9 0.11 &quot;Mitglied&quot; &quot;AA&quot;
+## &quot;2&quot; &quot;Deutschland&quot; 357500 83.2 0.23 &quot;Mitglied&quot; &quot;AAA&quot;
+## &quot;3&quot; &quot;Schweiz&quot; 41300 8.6 0.21 &quot;nicht Mitglied&quot; &quot;AAA&quot;</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="06_basics_datananalyse.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># V2: mit Tabulatoren als Feldtrennzeichen und keinen Zeilenbeschriftungen direkt in die Zwischenablage</span></span>
+<span id="cb26-2"><a href="06_basics_datananalyse.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(rds.laender.ex, <span class="st">&quot;clipboard&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<hr />
+<p>🏆 <strong>Nun wissen wir, …</strong></p>
+<ul>
+<li>welche <strong>Schritte</strong> eine Datenanalyse ausmachen.</li>
+<li>welche grundlegenden <strong>Datenstrukturen</strong> in R vorhanden sind.</li>
+<li>wie wir unterschiedlichen <strong>Skalenniveaus</strong> in R abbilden können.</li>
+<li>wie wir Datensätze <strong>in R im- und aus R exportieren</strong> können.</li>
+</ul>
+<p>And now it’s <strong>time for some action</strong> …</p>
+<p><img src="images/cat_computer.gif" class="videoframe" width="250" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="05_primaererhebung.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="07_n_kategoriale_variablen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

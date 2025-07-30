@@ -1,0 +1,44 @@
+P {
+  text-align: justify;
+}
+
+p.caption {
+  font-style: italic;
+  margin-bottom: 2em !important;
+}
+
+h1 {
+	color: #F98400;
+	border-bottom: 3px solid #F98400;
+	display: absolute;
+}
+
+h2, h3 {
+	color: #00A08A;
+}
+
+pre {
+  border-radius: 5px;
+  border: 1px solid !important;
+  word-break: normal;
+  word-wrap: normal;
+}
+
+pre.sourceCode.r {
+  border-radius: 5px;
+  background-color: #f9e2ad !important;
+  font-weight: bolder;
+  border: 1px solid !important;
+}
+
+blockquote {
+  margin: 2em 0em 1em !important;
+}
+
+hr {
+  border-bottom: 3px solid #F98400 !important;
+}
+
+.videoframe {
+	border: 2px solid #5BBCD6 !important;
+}
