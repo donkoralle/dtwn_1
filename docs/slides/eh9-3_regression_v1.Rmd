@@ -1,0 +1,122 @@
+---
+title: "Everything hangs together: Lineare Regression"
+subtitle: "716408 | Sozialwiss. Methoden – How 2 do Things with Numbers"
+author: "KMH"
+date: "SS 22 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [mycss_metropolis_v1.css, metropolis, metropolis-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r xaringanExtras, echo=FALSE}
+xaringanExtra::use_share_again()  # für die Buttons zur Navigation
+xaringanExtra::use_tile_view()    # für den Overview auf die Slides
+```
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br> Wozu Regression?
+
+---
+
+# Exkurs: Unterschied Regression & Korrelation
+
+* **Korrelation: ** Stärke eines monotonen Zusammenhangs
+  + Korrelation kann von einem 3. (nicht berücksichtigten) Faktor ausgehen 🡒 Scheinkorrelation
+    - BSP: Korrelation zwischen Geburtenrate und Storchenpopulation in einem Bezugsraum
+  + Prognose i.e.S. nicht möglich
+* **Regression: **Beschreibung einer Ursache-Wirkungs-Beziehung
+	+ Formalisierung eines Zusammenhangs als (z.B. lineare) Gleichung  
+	🡒 Wie genau wirkt ein Faktor auf einen anderen?
+	+ Möglichkeit zur **Prognose**
+
+---
+
+# Lineare Regression im Detail
+
+* **Abhängige Variable **(„Regressand“): zu erklärende Variable
+* **Unabhängige Variable **(„Regressor“): erklärende Variable(n)
+* Ursache-Wirkungs-Beziehung als lineare Gleichung darstellen:  
+$$f_{x}=\alpha_{0}+\alpha_{1}x$$
+
+
+.pull-left[
+
+  * Parameterschätzung über Methode der kleinsten Fehlerquadrate
+
+.font80[
+
+$$\min_{\alpha_{0}, \alpha_{1}}\sum_{i=1}r_i^2$$
+
+$$r_1=\alpha_0+\alpha_1x_1-y_1\\
+...\\
+r_n=\alpha_0+\alpha_1x_n-y_n\\$$
+
+]
+
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container300">')
+knitr::include_graphics ("images/eh9-3_regression/eh9-3_regression_v1_S5_10.png")
+knitr::asis_output("</div>")
+```
+
+]
+
+---
+
+# Lineare Regression im Detail
+
+<!-- .pull-left[ -->
+
+$$f_{x}=\alpha_{0}+\alpha_{1}x$$
+
+$$\alpha_1=\frac{ {\sum_{i=1}^n}(x_i-\overline{x})(y_i-\overline{y}) } {\sum_{i=1}^n(x_i-\overline{x})^{2}}$$
+
+$$\alpha_0=\overline{y}-\alpha_1\overline{x}$$
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container300">')
+knitr::include_graphics ("images/eh9-3_regression/eh9-3_regression_v1_S4_7.png")
+knitr::asis_output("</div>")
+```
+
+.quelle[(Eigene Erstellung 2018, CC BY)]
+
+---
+
+# @ Güte einer gefunden Regressionslösung
+
+* **Bestimmtheitsmaß R²:**
+	+ Durch Regression erklärte Varianz der abhängigen Variable
+	+ Wertbereich: 0 bis 1 (= vollständige Varianzerklärung)
+	
+.pull-left[
+
+$${SS_{\text{res}}=\sum _{i}(y_{i}-f_{i})^{2}}$$
+
+
+$${\displaystyle SS_{\text{tot}}=\sum _{i}(y_{i}-{\bar {y}})^{2}}$$
+
+$${\displaystyle R^{2}=1-{SS_{\rm {res}} \over SS_{\rm {tot}}}}$$
+
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container350">')
+knitr::include_graphics ("images/eh9-3_regression/eh9-3_regression_v1_S6_1.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Orzetto, Wikimedia, CC BY-SA)]
+
+]

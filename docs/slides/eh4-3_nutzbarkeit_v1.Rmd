@@ -1,0 +1,75 @@
+---
+title: "Nutzbarkeit von Daten"
+subtitle: "716408 | Sozialwiss. Methoden – How 2 do Things with Numbers"
+author: "KMH"
+date: "SS 22 | KMH (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [mycss_metropolis_v1.css, metropolis, metropolis-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r xaringanExtras, echo=FALSE}
+xaringanExtra::use_share_again()  # für die Buttons zur Navigation
+xaringanExtra::use_tile_view()    # für den Overview auf die Slides
+```
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br> Legal, illegal, *!?#+egal?
+
+---
+
+# Wem „gehören“ Primär- und Sekundärdaten?
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh4-2_nutzbarkeit_qualitaet/ImageSlide_5.png")
+knitr::asis_output("</div>")
+```
+
+---
+
+# Daher: Open Data
+
+_„sämtliche Datenbestände, die im Interesse der Allgemeinheit […] **ohne jedwede Einschränkung** zur freien Nutzung, zur Weiterverbreitung und zur freien Weiterverwendung frei zugänglich gemacht werden.“_  
+(Lucke & Geiger 2010:4)
++ Zugang
++ Weiterverbreitung
++ Folgenutzung
++ Abwesenheit technologischer Restriktionen (SIC!)
++ Keine Einschränkung der Einsatzzwecke
+
+---
+
+# Beispiele für Open Data Repositorien
+
+.pull-left[
+* AUT: https://www.data.gv.at
+* GER: https://www.govdata.de
+* CH: https://opendata.swiss
+* EU: https://data.europa.eu
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh4-2_nutzbarkeit_qualitaet/EH4-2_nutzbarkeit_qualitaet_v1_S8_3.png")
+knitr::asis_output("</div>")
+```
+]
+
+---
+
+# Legal, illegal, sch?!ß egal?
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh4-2_nutzbarkeit_qualitaet/ImageSlide_9.png")
+knitr::asis_output("</div>")
+```
+.quelle[(openeducation.at, CC BY)]
