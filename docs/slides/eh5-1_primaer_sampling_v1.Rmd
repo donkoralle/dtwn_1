@@ -1,0 +1,434 @@
+---
+title: "Primärdatengewinnung Special: <br> Die Stichprobe"
+subtitle: "716408 | Sozialwiss. Methoden – How 2 do Things with Numbers"
+author: "KMH"
+date: "SS 22 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [mycss_metropolis_v1.css, metropolis, metropolis-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r xaringanExtras, echo=FALSE}
+xaringanExtra::use_share_again()  # für die Buttons zur Navigation
+xaringanExtra::use_tile_view()    # für den Overview auf die Slides
+```
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br> Wieso sind Stichproben wichtig?
+
+---
+
+# Warum das Ziehen von Stichproben wichtig ist
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/ImageSlide_2.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Eigene Überarbeitung 2016 von: Meier-Kruker & Rauh 2005:86)]
+
+---
+
+# Die repräsentative Stichprobe
+
+.pull-left[
+* **Repräsentativ:“**  
+  + alle Elemente der Grundgesamtheit  
+→ gleiche Chance in Stichprobe zu gelangen
+  + Strukturgleichheit = Häufigkeitsverteilung „wichtiger“ Merkmale der Grundgesamtheit abgebildet
+* 👉 Voraussetzung für Rückschluss auf Grundgesamtheit
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S4_1.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Höferl, 2020, CC BY)]
+]
+---
+
+# Die informative Stichprobe
+
+.pull-left[
+* **„Informativ“:**  
+unterschiedliche Chancen in Stichprobe zu gelangen
+  + Struktur**UN**gleichheit
+  + 👉 kein Rückschluss auf die Grundgesamtheit möglich
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S6_2.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Höferl, 2020, CC BY)]
+]
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br> Wie geht das statistisch?
+
+---
+
+# Zentraler Grenzwertsatz der Statistik
+
+.pull-left[
+* **Unabhängig von der konkreten Ausgangsverteilung konvergiert die Verteilungsfunktion einer Summe von Stichproben gegen die Normalverteilung**
+* **BSP: **Canadian Survey of Labour and Income Dynamics (n=4.147)
+	+ Min: 2,30
+	+ Max: 49,92
+	+ Mean: 15,55
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S7_3.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Hudec 2010)]
+]
+---
+
+# Zentraler Grenzwertsatz der Statistik in Action
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container350">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S8_4.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Hudec 2010)]
+
+🡒 Mittelwert Grundgesamt: 15,55
+
+---
+
+# Zentraler Grenzwertsatz der Statistik in Action
+
+.pull-left[
+* Nicht 1 Stichprobe á 100
+* **1.000 Zufallsstichproben á 100**
+	+ Min: 13,37
+	+ Max: 18,77
+	+ **Mean: 15,53**
+	+ **Mean Grundgesamt: 15,55**
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S9_5.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Hudec 2010)]
+]
+---
+
+# Schätzen relativer Häufigkeiten
+
+* **Grenzwertsatz** der Statistik:  
+Bei großem n (≥100) sind relative Häufigkeiten p annähernd normalverteilt mit dem Erwartungswert π
+* **Aus Normalverteilung: **Konfidenzintervall zur Sicherheit 1-α in dem der Parameter π ausgehend vom Stichprobenergebnis p liegt
+
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container300">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S11_6.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Quatember 2007:127)]
+
+---
+
+# Das Konfidenzintervall – es funktioniert!
+
+.pull-left[
+* Die 95%- “Irrtumswahrscheinlichkeit“ als **Wahrscheinlichkeit der Überdeckung**:
+  - 100 Stichproben aus gleicher Grundgesamtheit
+  - 👉 Verfahren wird in **95 Fällen** den unbekannten Parameter der Grundgesamtheit überdecken
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S13_7.png")
+knitr::asis_output("</div>")
+```
+.quelle[(adaptiert von: Liero 2009:o.S.)]
+]
+---
+
+# Das Ganze in Action:
+
+.font60[📚 https://www.sora.at/fileadmin/downloads/projekte/Austria_Spread_of_SARS-CoV-2_Study_Report.pdf]
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container450">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S14_8.png")
+knitr::asis_output("</div>")
+```
+.quelle[(SORA, 2020)]
+
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br>Stichprobenziehung quick and dirty?
+
+---
+
+# Die Stichprobenziehung
+
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S16_9.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Überarbeitung von: Schnell, Hill & Esser 1995:252)]
+
+---
+
+class: spacing05
+
+# Die willkürliche Stichprobenziehung
+
+.pull-left[
+.font90[
+* **Willkürliche Auswahl:**
+  * Massive Verzerrung  
+  **🡒 wiss. bedenklich**
+* **„Typische“ Fälle:**
+  + Definition von „charakteristisch“ ohne Wissen über Grundgesamtheit
+  + 🡒 Redefinition der Grundgesamtheit
+* **„Extreme“ Fälle:**  
+Fälle mit „extremen“ Merkmalsausprägungen
+  + siehe oben
+  + 🡒 Redefinition der Grundgesamtheit]
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S18_10.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Schnell, Hill & Esser 1995:252)]
+]
+---
+
+# Die informative Stichprobenziehung
+
+
+.pull-left[
+* **Konzentrationsprinzip:**
+  + Fälle die fast die gesamte Verteilung eines Merkmals in Grundgesamt bestimmen
+* **Schneeballverfahren:**
+  + Soziale Netzwerke
+  + Auswahl bei „seltenen“ Populationen
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S20_11.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Schnell, Hill & Esser 1995:252)]
+]
+---
+
+# Die imformative Stichprobenziehung
+
+**Quotenauswahl:**
+  + Stratifikation der Stichprobe anhand ausgewählter Merkmale
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container350">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S21_12.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Höferl, 2019, CC BY)]
+
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br> Repräsentative Stichproben - aber wie?
+
+---
+
+# Die Stichprobenziehung
+
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S24_13.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Überarbeitung von: Schnell, Hill & Esser 1995:252)]
+
+---
+
+# Die repräsentative Stichprobenziehung
+
+**1. Wahrscheinlichkeitsauswahl mittels Urnenmodell**
+
+.pull-left[
+* Ziehen ohne Zurücklegen
+* Liefert bei normalverteilte Häufigkeiten:
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container200">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S26_14.png")
+knitr::asis_output("</div>")
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container450">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S26_15.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Schnell, Hill & Esser 1995:252)]
+]
+---
+
+class: spacing05
+
+# Die repräsentative Stichprobenziehung
+
+.pull-left[
+.font90[
+**2. Geschichtete Stichproben:**
+* Jedes Element Grundgesamt gehört einer Schicht an
+* Vorteile:
+  + Untersch. Streuung in Schichten  
+  → genauere Messung
+  + Aussagen zu den Schichten selbst von Interesse
+* Nachteile:
+  + Kenntnis/Schätzung Parameter Grundgesamtheit
+  + Nachtr. Gewichtung]
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S28_16.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Schnell, Hill & Esser 1995:252)]
+]
+---
+
+class: spacing05
+
+# BSP: Die COVID-19 Prävalenz Studie (SORA, 2020)
+
+.font70[📚 https://www.bmbwf.gv.at/Themen/Forschung/Aktuelles/Corona-Studien.html
+]
+* n=1.544 (Zufallsstichprobe, österreichweit)
+* Testzeitraum: 1.4. bis 6.4.2020
+* Bruttostichprobe:
+	+ Zufallsauswahl von 249 Gemeinden*:
+		- Schichtung entlang Bundesländer & Gemeindegröße
+		- \* … Wiener Bezirke = Gemeinde
+	+ Innerhalb der Gemeinden: Zufallsauswahl Haushalte
+		- Adressdaten: Telefonverzeichnis & RLD-Verfahren
+		- ~ 2.197 / 0,77 = 2.850 kontaktierte HH
+		- 23% Verweigerung bei HH
+	+ Innerhalb der Haushalte: Zufallsauswahl Haushaltsmitglied
+		- Aus 2.197 HH → 1.544 Tests
+
+---
+
+# @ 249 Gemeinden
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/ImageSlide_30.png")
+knitr::asis_output("</div>")
+```
+.quelle[(SORA, 2020)]
+
+---
+
+# Die repräsentative Stichprobenziehung
+
+.pull-left[
+**3. Klumpenstichproben: **
+* Auswahl nicht auf Grundgesamt sondern auf zusammengefasste Elemente (= Klumpen)
+  + wenn **keine Liste Grundgesamt**, aber der Klumpen vorhanden
+    - BSP: Zählsprengel, Rasterzellen etc.
+  + Nachteil: Unterschiede in Klumpen gehen nicht ein  
+  **🡒 Klumpeneffekt**
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S32_17.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Schnell, Hill & Esser 1995:252)]
+]
+---
+
+class: spacing06
+
+# Die repräsentative Stichprobenziehung
+
+.pull-left[
+.font90[
+**4. Mehrstufige Auswahlen:**  
+* Zufallsauswahl in mehreren Stufen
+* keine Listen Grundgesamt, aber Listen aggr. Elemente
+* Klassiker: Flächenstichproben
+  + Flächen = Primäreinheit
+  + Haushalte darin = Sekundäreinheiten
+  + Personen in Haushalten = Tertiäreinheiten
+* Problem:  
+Untersch. große Primäreinheiten  
+👉 Propability Proportinal to Size **(PPS) Verfahren**
+]
+]
+    
+.pull-right[
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh5-1_primaer_sampling/EH5-1_Primaer_4_Sampling_S34_18.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Schnell, Hill & Esser 1995:252)]
+]
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br>tl;dr
+
+---
+
+# Konklusio
+
+* Sampling zentral für **Validität** der Daten
+	+ **repräsentativ:** ermöglicht Rückschlüsse auf Grundgesamtheit
+	+ **informativ:** keine Rückschlüsse
+* ** 👉 Aufwand-Ertrags-Abwägung** notwendig
+* **Verfahren:**
+	+ **einfache Zufallsstichprobe: **nur wenn Grundgesamtheit bekannt
+	+ **geschichtete Zufallsstichprobe: **s.o.
+	+ **Klumpenstichprobe: **kann verzerren
+	+ **Probability Proportional to Size (PPS) Verfahren:  
+	**kein Klumpeneffekt

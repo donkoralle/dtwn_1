@@ -1,0 +1,267 @@
+---
+title: "Everything hangs together: Zusammenhangsmaße"
+subtitle: "716408 | Sozialwiss. Methoden – How 2 do Things with Numbers"
+author: "KMH"
+date: "SS 22 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [mycss_metropolis_v1.css, metropolis, metropolis-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r xaringanExtras, echo=FALSE}
+xaringanExtra::use_share_again()  # für die Buttons zur Navigation
+xaringanExtra::use_tile_view()    # für den Overview auf die Slides
+```
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br> Everything hangs together?
+
+---
+
+# Ein Überblick auf ausgewählte Maße
+
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh9-2_korrel/eh9-2_zusammenhangsmasse_metrisch_v1_S2_1.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Eigene Überarbeitung 2016 von Hager, 2011)]
+
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br> Exkurs: Normalverteit?
+
+---
+
+# Warum ist das wichtig?
+
+**Zentraler Grenzwertsatz** der Statistik:
+
+Verteilungen (= Messungen) die unter einer großen Anzahl unabhängiger Einflüsse (= Abweichungen) ermittelt werden:  
+**👉 normalverteilt**
+
+**BSP:** 500 Zufallszahlen
+
+```{r echo=FALSE, fig.height = 4.5}
+hans <- rnorm(500)
+hist(hans, breaks = 40, prob = TRUE, main = NULL, xlab = NULL)
+lines(density(hans), col = "red")
+```
+
+---
+
+# Überprüfen der Normalverteilung 1/3
+
+**1. Visuell: **Histogramm & Normalverteilungskurve
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(readxl)
+
+beispieldaten <- read_excel("eh9-2_beispieldaten.xlsx", sheet = "ex")
+
+summary(beispieldaten$var1)
+```
+
+
+```{r fig.height=3}
+ggplot(beispieldaten, aes(x = var1, y = ..density..)) +
+  geom_histogram(bins = 50, fill = "red") +
+  geom_density()
+```
+
+.font70[
+
+**Bei Normalverteilung:**
+
+* symmetrische Verteilung um Mittelwert
+* Dichtekurve = Glockenkurve
+
+👉 hier nicht gegeben 🡒 **vermutlich keine Normalverteilung**
+ ]
+---
+
+# Überprüfen der Normalverteilung 2/3
+
+**2. Visuell: **Q(uantil)-Q(uantil) Plots
+
+```{r fig.height = 3.5, fig.width = 4.5}
+ggplot(beispieldaten, aes(sample = var1)) +
+  geom_qq(color="red") +
+  geom_qq_line()
+```
+
+.font70[
+
+**Bei Normalverteilung:**
+
+* beobachtete Werte liegen auf der Geraden (= ideale Normalverteilung)
+
+👉 hier nicht gegeben 🡒 **vermutlich keine Normalverteilung**
+]
+
+---
+
+# Überprüfen der Normalverteilung 3/3
+
+**3. Numerisch: ** [Der Shapiro-Wilk-Test](https://de.wikipedia.org/wiki/Shapiro-Wilk-Test)
+
+```{r}
+shapiro.test(beispieldaten$var1)
+```
+
+**Interpretation: **
+
+-   **H0:** Normalverteilung ist gegeben
+
+-   **H1:** Normalverteilung ist nicht gegeben
+
+👉  p = 2.2e-16 < α (= 0,05)  
+👉 H0 ablehnen 🡒 **keine Normalverteilung gegeben**
+
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br> Back 2 the story:<br>Metrische Zusammenhänge messen?
+
+---
+
+# Zusammenhänge graphisch erschließen
+
+* **Scatterplot (aka "Streudigramm"):**  
+grafische Darstellung von Wertpaaren zweier metrischer Merkmale
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container300">')
+knitr::include_graphics ("images/eh9-2_korrel/eh9-2_zusammenhangsmasse_metrisch_v1_S7_2.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Eigene Überarbeitung 2018 von: Quatember 2007:667)]
+
+👉 nach **Verteilungsmustern** Ausschau halten
+
+---
+
+# Zusammenhänge numerisch messen
+
+**Ermittlung der Korrelation r:**
+
+* Berechnen der Kovarianz $S_{xy}$
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container300">')
+knitr::include_graphics ("images/eh9-2_korrel/eh9-2_zusammenhangsmasse_metrisch_v1_S10_3.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Eigene Überarbeitung 2019 von: Quatember 2007:69)]
+
+
+* Kovarianz ohne obere & untere Beschränkung  
+**🡒 Normierung auf Wertbereich -1 bis +1** notwendig
+
+---
+
+# Zusammenhänge numerisch messen
+
+**Korrelationskoeffizient r** [-1; +1] 
+
+$r=\frac{S_{xy}}{S_{x}* S_{y}}$
+
+.font70[
+
+$S_{x}$ ... Standardabweichung Variable x  
+$S_{y}$ ... Standardabweichung Variable y
+
+]
+
+**👉 Interpretation:**
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container250">')
+knitr::include_graphics ("images/eh9-2_korrel/eh9-2_zusammenhangsmasse_metrisch_v1_S11_4.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Eigene Überarbeitung 2019 von: Quatember 2007:71)]
+
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br>... und wenn meine Variablen NICHT normalverteilt sind? 
+
+---
+
+# Spearmans ρ für (ordinale) Zusammenhänge
+
+
+
+* **Pearsons Problem: **linearer Zusammenhang 🡒 Ausreißer
+
+.pull-left[
+
+* **Umgang damit:**
+	+ Prüfen der Normalverteilung der verwendeten Variablen
+	+ Pearsons r & Spearmans ρ ermitteln  
+	🡒 „deutliche“ Unterschiede = Ausreißer verzerren Pearsons r
+	  * Ausreißer ausschließen
+
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container400">')
+knitr::include_graphics ("images/eh9-2_korrel/eh9-2_zusammenhangsmasse_metrisch_v1_S12_5.png")
+knitr::asis_output("</div>")
+```
+.quelle[(Matheguru, o.J.)]
+
+]
+
+---
+
+# Spearmans ρ für (ordinale) Zusammenhänge
+
+* Misst **beliebige monotone Zusammenhänge:**
+	+ Wertbereich: wie Pearsons r (-1 bis +1)
+	+ Grundlage: Differenz in den Rängen eines Wertpaares
+	+ Praktisch: Pearsons r auf Basis von Rängen
+* **Problem: **Bindungen („Ties“)
+	+ Daumenregel: unter 20% aller Wertpaare  
+	🡒 Ränge über Mittelwerte
+	
+.pull-left[
+
+$$r_{s} = 1-\frac{6\sum_id_i^2}{n\cdot(n^2-1)}$$
+
+$$d_i=rg_xi-rg_yi$$
+]
+
+.pull-right[
+
+.font70[
+
+$n$ … Anzahl der Wertpaare  
+$rg_{xi}$ bzw. $rg_{yi}$ ... Rang des i-ten Ausprägung in Variable x bzw. y
+
+]
+
+]
+
+
+
+
+

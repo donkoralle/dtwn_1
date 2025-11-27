@@ -1,0 +1,67 @@
+---
+title: "Qualität von Sekundärdaten"
+subtitle: "716408 | Sozialwiss. Methoden – How 2 do Things with Numbers"
+author: "KMH"
+date: "SS 22 | KMH (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [mycss_metropolis_v1.css, metropolis, metropolis-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r xaringanExtras, echo=FALSE}
+xaringanExtra::use_share_again()  # für die Buttons zur Navigation
+xaringanExtra::use_tile_view()    # für den Overview auf die Slides
+```
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]<br> Sind nicht alle Daten gleich (gut)?
+
+---
+
+class: spacing07
+
+# Qualität & Eignung von Sekundärdaten
+
+* Institutioneller Ursprung
+* **Nachvollziehbarkeit 🡒 Metadaten**
+	+ Erhebungsmethode
+		- Objektivität
+		- Reliabilität
+		- Validität
+	+ Aufbereitung
+	+ Verständlichkeit
+* Nutzbarkeit
+	+ Lizenz
+* Relevanz **Fragestellung**
+
+---
+
+# Ein Beispiel: Administrative Einheiten Österreichs
+
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh4-2_nutzbarkeit_qualitaet/EH4-2_nutzbarkeit_qualitaet_v1_S3_1.png")
+knitr::asis_output("</div>")
+```
+.center[https://github.com/bresu/oe_gemeinden]
+
+
+---
+
+# Der Plausibilitätscheck
+
+```{r echo=FALSE}
+knitr::asis_output('<div class="container">')
+knitr::include_graphics ("images/eh4-2_nutzbarkeit_qualitaet/EH4-2_nutzbarkeit_qualitaet_v1_S4_2.png")
+knitr::asis_output("</div>")
+```
+.font80[https://www.statistik.at/web_de/klassifikationen/regionale_gliederungen/gemeinden]
+
+

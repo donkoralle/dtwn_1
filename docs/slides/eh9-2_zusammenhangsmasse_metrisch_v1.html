@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Everything hangs together: Zusammenhangsmaße</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="KMH" />
+    <script src="libs/header-attrs-2.12/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.6/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.6/shareagain.js"></script>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="mycss_metropolis_v1.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Everything hangs together: Zusammenhangsmaße
+## 716408 | Sozialwiss. Methoden – How 2 do Things with Numbers
+### KMH
+### SS 22 (updated: 2022-06-05)
+
+---
+
+
+
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]&lt;br&gt; Everything hangs together?
+
+---
+
+# Ein Überblick auf ausgewählte Maße
+
+
+&lt;div class="container"&gt;&lt;img src="images/eh9-2_korrel/eh9-2_zusammenhangsmasse_metrisch_v1_S2_1.png" width="1153" /&gt;&lt;/div&gt;
+.quelle[(Eigene Überarbeitung 2016 von Hager, 2011)]
+
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]&lt;br&gt; Exkurs: Normalverteit?
+
+---
+
+# Warum ist das wichtig?
+
+**Zentraler Grenzwertsatz** der Statistik:
+
+Verteilungen (= Messungen) die unter einer großen Anzahl unabhängiger Einflüsse (= Abweichungen) ermittelt werden:  
+**👉 normalverteilt**
+
+**BSP:** 500 Zufallszahlen
+
+![](eh9-2_zusammenhangsmasse_metrisch_v1_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+---
+
+# Überprüfen der Normalverteilung 1/3
+
+**1. Visuell: **Histogramm &amp; Normalverteilungskurve
+
+
+
+
+
+
+```r
+ggplot(beispieldaten, aes(x = var1, y = ..density..)) +
+  geom_histogram(bins = 50, fill = "red") +
+  geom_density()
+```
+
+![](eh9-2_zusammenhangsmasse_metrisch_v1_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+.font70[
+
+**Bei Normalverteilung:**
+
+* symmetrische Verteilung um Mittelwert
+* Dichtekurve = Glockenkurve
+
+👉 hier nicht gegeben 🡒 **vermutlich keine Normalverteilung**
+ ]
+---
+
+# Überprüfen der Normalverteilung 2/3
+
+**2. Visuell: **Q(uantil)-Q(uantil) Plots
+
+
+```r
+ggplot(beispieldaten, aes(sample = var1)) +
+  geom_qq(color="red") +
+  geom_qq_line()
+```
+
+![](eh9-2_zusammenhangsmasse_metrisch_v1_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+.font70[
+
+**Bei Normalverteilung:**
+
+* beobachtete Werte liegen auf der Geraden (= ideale Normalverteilung)
+
+👉 hier nicht gegeben 🡒 **vermutlich keine Normalverteilung**
+]
+
+---
+
+# Überprüfen der Normalverteilung 3/3
+
+**3. Numerisch: ** [Der Shapiro-Wilk-Test](https://de.wikipedia.org/wiki/Shapiro-Wilk-Test)
+
+
+```r
+shapiro.test(beispieldaten$var1)
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  beispieldaten$var1
+## W = 0.62872, p-value &lt; 2.2e-16
+```
+
+**Interpretation: **
+
+-   **H0:** Normalverteilung ist gegeben
+
+-   **H1:** Normalverteilung ist nicht gegeben
+
+👉  p = 2.2e-16 &lt; α (= 0,05)  
+👉 H0 ablehnen 🡒 **keine Normalverteilung gegeben**
+
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]&lt;br&gt; Back 2 the story:&lt;br&gt;Metrische Zusammenhänge messen?
+
+---
+
+# Zusammenhänge graphisch erschließen
+
+* **Scatterplot (aka "Streudigramm"):**  
+grafische Darstellung von Wertpaaren zweier metrischer Merkmale
+
+&lt;div class="container300"&gt;&lt;img src="images/eh9-2_korrel/eh9-2_zusammenhangsmasse_metrisch_v1_S7_2.png" width="1065" /&gt;&lt;/div&gt;
+.quelle[(Eigene Überarbeitung 2018 von: Quatember 2007:667)]
+
+👉 nach **Verteilungsmustern** Ausschau halten
+
+---
+
+# Zusammenhänge numerisch messen
+
+**Ermittlung der Korrelation r:**
+
+* Berechnen der Kovarianz `\(S_{xy}\)`
+
+&lt;div class="container300"&gt;&lt;img src="images/eh9-2_korrel/eh9-2_zusammenhangsmasse_metrisch_v1_S10_3.png" width="899" /&gt;&lt;/div&gt;
+.quelle[(Eigene Überarbeitung 2019 von: Quatember 2007:69)]
+
+
+* Kovarianz ohne obere &amp; untere Beschränkung  
+**🡒 Normierung auf Wertbereich -1 bis +1** notwendig
+
+---
+
+# Zusammenhänge numerisch messen
+
+**Korrelationskoeffizient r** [-1; +1] 
+
+`\(r=\frac{S_{xy}}{S_{x}* S_{y}}\)`
+
+.font70[
+
+`\(S_{x}\)` ... Standardabweichung Variable x  
+`\(S_{y}\)` ... Standardabweichung Variable y
+
+]
+
+**👉 Interpretation:**
+
+&lt;div class="container250"&gt;&lt;img src="images/eh9-2_korrel/eh9-2_zusammenhangsmasse_metrisch_v1_S11_4.png" width="1165" /&gt;&lt;/div&gt;
+.quelle[(Eigene Überarbeitung 2019 von: Quatember 2007:71)]
+
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]&lt;br&gt;... und wenn meine Variablen NICHT normalverteilt sind? 
+
+---
+
+# Spearmans ρ für (ordinale) Zusammenhänge
+
+
+
+* **Pearsons Problem: **linearer Zusammenhang 🡒 Ausreißer
+
+.pull-left[
+
+* **Umgang damit:**
+	+ Prüfen der Normalverteilung der verwendeten Variablen
+	+ Pearsons r &amp; Spearmans ρ ermitteln  
+	🡒 „deutliche“ Unterschiede = Ausreißer verzerren Pearsons r
+	  * Ausreißer ausschließen
+
+]
+
+.pull-right[
+
+&lt;div class="container400"&gt;&lt;img src="images/eh9-2_korrel/eh9-2_zusammenhangsmasse_metrisch_v1_S12_5.png" width="473" /&gt;&lt;/div&gt;
+.quelle[(Matheguru, o.J.)]
+
+]
+
+---
+
+# Spearmans ρ für (ordinale) Zusammenhänge
+
+* Misst **beliebige monotone Zusammenhänge:**
+	+ Wertbereich: wie Pearsons r (-1 bis +1)
+	+ Grundlage: Differenz in den Rängen eines Wertpaares
+	+ Praktisch: Pearsons r auf Basis von Rängen
+* **Problem: **Bindungen („Ties“)
+	+ Daumenregel: unter 20% aller Wertpaare  
+	🡒 Ränge über Mittelwerte
+	
+.pull-left[
+
+`$$r_{s} = 1-\frac{6\sum_id_i^2}{n\cdot(n^2-1)}$$`
+
+`$$d_i=rg_xi-rg_yi$$`
+]
+
+.pull-right[
+
+.font70[
+
+`\(n\)` … Anzahl der Wertpaare  
+`\(rg_{xi}\)` bzw. `\(rg_{yi}\)` ... Rang des i-ten Ausprägung in Variable x bzw. y
+
+]
+
+]
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

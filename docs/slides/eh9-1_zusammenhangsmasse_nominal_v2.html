@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Everything hangs together: Zusammenhangsmaße</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="KMH" />
+    <script src="libs/header-attrs-2.12/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.6/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.6/shareagain.js"></script>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="mycss_metropolis_v1.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Everything hangs together: Zusammenhangsmaße
+## 716408 | Sozialwiss. Methoden – How 2 do Things with Numbers
+### KMH
+### SS 22 (updated: 2022-05-25)
+
+---
+
+
+
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]&lt;br&gt; Everything hangs together?
+
+---
+
+# Auf den Zusammenhang kommt es an I
+
+
+&lt;div class="container"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/EH9-1_Zusammenhangsmaße_nominal_S2_1.png" width="888" /&gt;&lt;/div&gt;
+.quelle[(https://www.univie.ac.at/ksa/elearning/cp/quantitative/quantitative-113.html)]
+
+---
+
+# Auf den Zusammenhang kommt es an II
+
+
+&lt;div class="container"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/EH9-1_Zusammenhangsmaße_nominal_S3_2.png" width="1189" /&gt;&lt;/div&gt;
+.quelle[(Cutter, Mitchell &amp; Scott 2000)]
+
+---
+
+# Auf den Zusammenhang kommt es an III
+
+&lt;div class="container"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/ImageSlide_5.png" width="1243" /&gt;&lt;/div&gt;
+.quelle[(National Geographic 2012)]
+
+---
+
+# Auf den Zusammenhang kommt es an IV
+
+&lt;div class="container"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/EH9-1_Zusammenhangsmaße_nominal_S6_3.png" width="1259" /&gt;&lt;/div&gt;
+.quelle[Charles Joseph Minard, Wikimedia, PD]
+
+---
+
+# Recap: Skalenniveaus quantitativer Daten
+
+&lt;div class="container"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/ImageSlide_7.png" width="1232" /&gt;&lt;/div&gt;
+.quelle[ (vgl. Bortz &amp; Döring 2009:69; Reuber &amp; Pfaffenbach 2005:94)]
+
+---
+
+# Zusammenhänge erkennen
+
+* **2 Möglichkeiten **bivariater Analyse:
+	+ Explorativ:
+		- Grafisch („Streudiagramm“)
+		- Numerisch (Kontingenztabellen)
+	+ Tests auf Signifikanz:
+		- Tests auf Zusammenhang (👉 Richtung)
+		- Messung der Stärke eines Zusammenhangs
+* **Prinzipiell:** je Skalenniveau 🡒 **unterschiedliche Maße**
+
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]&lt;br&gt; Zusammenhänge - aber wie messen?
+
+---
+
+# Ein Überblick auf ausgewählte Maße
+
+
+&lt;div class="container"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/EH9-1_Zusammenhangsmaße_nominal_S10_4.png" width="1153" /&gt;&lt;/div&gt;
+.quelle[(Eigene Überarbeitung 2016 von Hager, 2011)]
+
+---
+
+# Ausgewählte (kategoriale) Zusammenhangsmaße
+
+&lt;div class="container"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/ImageSlide_11.png" width="2092" /&gt;&lt;/div&gt;
+.quelle[(Eigene Erstellung 2018; adaptiert von: Heger &amp; Prust 2009)]
+
+---
+
+class: zwischentitel, center, middle
+
+# .emolarge[🤔]&lt;br&gt; Kategoriale Zusammenhänge erkunden
+
+---
+
+# .font90[Zusammenhang zwischen zwei kategorialen Variablen]
+
+* Klassiker: **Kreuz- bzw. Kontingenztabellen**
+	+ Absolute / relative Häufigkeiten der Kombination von Merkmalsausprägungen 🡒 nominale &amp; ordinale Daten
+	+ Inhaltliche Auswertung 🡒 Randsummen
+	+ BSP: 
+
+&lt;div class="container200"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/EH9-1_Zusammenhangsmaße_nominal_S12_5.png" width="1111" /&gt;&lt;/div&gt;
+.quelle[(Höferl, 2022, CC BY)]
+
+---
+
+# Zufall, oder nicht? Der Chi²-Test
+
+* Suche nach „signifikanten“ (α &lt; 0,05) Zusammenhängen
+
+&lt;div class="container350"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/EH9-1_Zusammenhangsmaße_nominal_S14_6_v2.png" width="1169" /&gt;&lt;/div&gt;
+.quelle[(Kuckartz et al. 2010:87ff.)]
+
+* **Wichtige Voraussetzung:** `\(f_{b(i,j)}\geq5\)`
+
+---
+
+# Der Chi²-Test: Ein Beispiel
+
+
+&lt;div class="container"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/EH9-1_Zusammenhangsmaße_nominal_S15_7.png" width="1212" /&gt;&lt;/div&gt;
+.quelle[ Höferl, 2022, CC BY ]
+
+---
+
+# Der Chi²-Test: Ein Beispiel
+
+**BSP:** Zusammenhang Geschlecht &amp; Verkehrsmittelwahl
+
++ **Nullhypothese H0:**Es besteht KEIN ein statistisch signifikanter Zusammenhang zwischen Geschlecht &amp; Verkehrsmittelwahl**
++ **Einshypothese H1:** Es besteht ein statistisch signifikanter Zusammenhang zwischen Geschlecht &amp; Verkehrsmittelwahl**
+
+****
+* Excel (CHIQU.TEST)bzw. R (chisq.test) 🡒 p=0,001203623
+* **Da p kleiner ist als α (0,05)** 👉 **Ablehnung der Nullhypothese H0**  
+  - Es besteht ein statistisch signifikanter Zusammenhang zwischen Geschlecht &amp; Verkehrsmittel
+
+---
+
+# .font90[Die Stärke des Zusammenhangs zwischen kat. Variablen]
+
+* 𝜒2 bei Unabhängigkeit = 0 (beobachtet = erwartet)
+	+ Kann beliebig groß werden
+	+ **👉 Normierung notwendig** um Aussage zu Stärke des Zusammenhangs [0 bis +1]zu treffen
+	
+****
+
+* Die Lösung: **Cramers V [0 bis +1]:**
+
+.pull-left[
+`$$V=\sqrt{\frac{\chi^2}{n*(min(m,r)-1)}}$$`
+]
+
+.pull-right[
+
+&lt;div class="container200"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/EH9-1_Zusammenhangsmaße_nominal_S18_8_v2.png" width="464" /&gt;&lt;/div&gt;
+.quelle[(Quatember 2007:66)]
+]
+
+---
+
+# .font90[Die Stärke des Zusammenhangs zwischen kat. Variablen]
+
+* **Cramers V [0 bis +1]:**
+	+ Je **größer** V ist 👉 **stärker** der stat. der Zusammenhang
+
+&lt;div class="container350"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/EH9-1_Zusammenhangsmaße_nominal_S19_9.png" width="900" /&gt;&lt;/div&gt;
+.quelle[(Quatember 2007:66)]
+
+---
+
+# Cramers V in Action
+
+&lt;div class="container"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/EH9-1_Zusammenhangsmaße_nominal_S20_10.png" width="1212" /&gt;&lt;/div&gt;
+.quelle[(Höferl, 2022, CC BY)]
+
+---
+
+# Cramers V in Action
+
+&lt;div class="container"&gt;&lt;img src="images/eh9-1_nomainale_zusammenhaenge/ImageSlide_21.png" width="1104" /&gt;&lt;/div&gt;
+.quelle[(Quatember 2007:66)]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
